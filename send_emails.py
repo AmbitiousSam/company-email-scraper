@@ -1,14 +1,29 @@
-# using SendGrid's Python Library
-# https://github.com/sendgrid/sendgrid-python
+# -*- coding: utf-8 -*-
 
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-# fromEmail - your email
-# email - passing emails from csv
-# subject - the email subject line
-# message - pass in your email message
+fromEmail - "18r01a05e2@cmritonline.ac.in"
+# email - "passing emails from csv"
+subject - "Free Merch or Coupons"
+message - '''Hi,
+
+My name is Siva Kumar
+
+I just wanted to say that I’m a huge fan of your company. I love your product and services.
+
+As someone who’s been a loyal customer for years, I just wanted to say you’re doing great work!
+
+I was also wondering if you have any samples or coupons or any free merch you could send my way – I’d love to try more of your products and would appreciate anything you could send me.
+
+Below is my address:
+
+DN-41, Devi Nagar, Neredmet, RK. Puram, Secunderabad, Hyderabad, Teleangana, India - 500056
+
+Thank you so much and have a great day!
+
+'''
 
 
 def send_email(fromEmail, email, subject, message):
@@ -18,7 +33,7 @@ def send_email(fromEmail, email, subject, message):
         subject=subject,
         html_content=message)
     try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        sg = SendGridAPIClient(os.environ.get('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'))
         response = sg.send(message)
         print(response.status_code)
         print(response.body)
